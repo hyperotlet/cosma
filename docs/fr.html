@@ -128,7 +128,7 @@
 <h2 data-number="3.1" id="creer-une-fiche"><span class="header-section-number">3.1</span> Créer une fiche</h2>
 <p>Cliquez sur Nouvelle fiche pour ouvrir le formulaire de création de fiche de Cosma.</p>
 <p>Le titre est obligatoire. Vous pouvez aussi assigner un type à la fiche, à définir préalablement dans la configuration. Vous pouvez également ajouter des mots-clés arbitraires à la fiche, en les séparant par des virgules.</p>
-<p>Cliquez sur OK crée une fiche dans le répertoire indiqué dans Préférences › Répertoire des fiches (ou dans le répertoire par défaut si aucun répertoire n’a été renseigné).</p>
+<p>Cliquez sur OK crée une fiche dans le répertoire indiqué dans Préférences › Répertoire des fiches.</p>
 <h2 data-number="3.2" id="format-de-donnees"><span class="header-section-number">3.2</span> Format de données</h2>
 <p>Cosma ne prescrit pas l’utilisation d’un logiciel d’écriture particulier. En revanche, créer du contenu pour Cosma passe par l’utilisation du format texte <!-- Quelles extensions sont acceptées par Cosma ? juste .md ou bien aussi .txt et d'autres ? --> et la mise en pratique de plusieurs normes d’écriture :</p>
 <ul>
@@ -179,9 +179,13 @@ tags:
 <p>Utiliser un en-tête en YAML permet de déclarer des métadonnées comme le titre et l’identifiant unique d’une fiche de manière <strong>explicite</strong>. Ceci présente l’avantage de rendre triviale la détection et la manipulation de ces métadonnées, aussi bien par une machine que par un humain. L’utilisation d’un format commun (comme YAML) augmente le nombre d’outils compatibles avec un même ensemble de fichiers. Et des outils informatiques très répandus comme les expressions régulières et les scripts <em>shell</em> permettent aux utilisateurs de convertir eux-mêmes leurs données de manière relativement simple si besoin.</p>
 </div>
 <h3 data-number="3.2.2" id="contenu"><span class="header-section-number">3.2.2</span> Contenu</h3>
-<p>Cosma interprète les fichiers comme étant rédigés en Markdown (syntaxe originelle, pas de variante). <!-- confirmer ? --></p>
-<p><a href="https://www.arthurperret.fr/tutomd/">Référence et tutoriel Markdown</a></p>
-<p>Le rendu des fichiers Markdown sous forme de fiche HTML dans le cosmoscope est limité aux éléments textuels. Les images par exemple ne sont pas incluses et seront remplacées par leur texte alternatif le cas échéant. <!-- Peut-on mettre du code svg inline ? --></p>
+<p>Cosma interprète les fichiers comme étant rédigés en Markdown, plus précisément la version CommonMark qui constitue une tentative de standardisation communautaire de Markdown.</p>
+<p><a href="https://www.arthurperret.fr/tutomd/">Référence et tutoriel Markdown/CommonMark</a></p>
+<p>Cosma ajoute deux éléments de syntaxe qui sont détaillés dans les sections suivantes : les liens et les citations.</p>
+<div class="important">
+<p>Lors du rendu des fichiers Markdown au format HTML, Cosma n’inclut pas de fichiers externes. Les fichiers d’images par exemple ne sont pas embarqués dans le cosmoscope : si vous avez écrit <code>![Légende](image.jpg)</code> en Markdown, dans le cosmoscope vous verrez le texte alternatif « Légende » et pas l’image.</p>
+<p>En revanche, le cosmoscope peut charger des fichiers en ligne. Vous pouvez écrire <code>![Légende](http://exemple.fr/image.jpg)</code>, dans le cosmoscope vous verrez bien l’image. <strong>Attention :</strong> tous les médias inclus de cette manière sont chargés en même temps à l’ouverture du cosmoscope, ce qui peut ralentir considérablement l’affichage. Nous prévoyons d’améliorer ceci dans une future mise à jour de Cosma.</p>
+</div>
 <h3 data-number="3.2.3" id="liens"><span class="header-section-number">3.2.3</span> Liens</h3>
 <p>À l’intérieur des fiches, vous pouvez créer des liens avec l’identifiant de la fiche cible entre double crochets. Cosma reconnaît ces liens et les utilise pour modéliser le graphe des fiches.</p>
 <p>Exemple :</p>
