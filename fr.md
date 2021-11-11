@@ -94,7 +94,7 @@ Cliquez sur Nouvelle fiche pour ouvrir le formulaire de création de fiche de Co
 
 Le titre est obligatoire. Vous pouvez aussi assigner un type à la fiche, à définir préalablement dans la configuration. Vous pouvez également ajouter des mots-clés arbitraires à la fiche, en les séparant par des virgules.
 
-Cliquez sur OK crée une fiche dans le répertoire indiqué dans Préférences › Répertoire des fiches (ou dans le répertoire par défaut si aucun répertoire n'a été renseigné).
+Cliquez sur OK crée une fiche dans le répertoire indiqué dans Préférences › Répertoire des fiches.
 
 ## Format de données
 
@@ -168,11 +168,17 @@ Utiliser un en-tête en YAML permet de déclarer des métadonnées comme le titr
 
 ### Contenu
 
-Cosma interprète les fichiers comme étant rédigés en Markdown (syntaxe originelle, pas de variante). <!-- confirmer ? -->
+Cosma interprète les fichiers comme étant rédigés en Markdown, plus précisément la version CommonMark qui constitue une tentative de standardisation communautaire de Markdown.
 
-[Référence et tutoriel Markdown](https://www.arthurperret.fr/tutomd/)
+[Référence et tutoriel Markdown/CommonMark](https://www.arthurperret.fr/tutomd/)
 
-Le rendu des fichiers Markdown sous forme de fiche HTML dans le cosmoscope est limité aux éléments textuels. Les images par exemple ne sont pas incluses et seront remplacées par leur texte alternatif le cas échéant. <!-- Peut-on mettre du code svg inline ? -->
+Cosma ajoute deux éléments de syntaxe qui sont détaillés dans les sections suivantes : les liens et les citations.
+
+::: important
+Lors du rendu des fichiers Markdown au format HTML, Cosma n'inclut pas de fichiers externes. Les fichiers d'images par exemple ne sont pas embarqués dans le cosmoscope : si vous avez écrit `![Légende](image.jpg)` en Markdown, dans le cosmoscope vous verrez le texte alternatif « Légende » et pas l'image.
+
+En revanche, le cosmoscope peut charger des fichiers en ligne. Vous pouvez écrire `![Légende](http://exemple.fr/image.jpg)`, dans le cosmoscope vous verrez bien l'image. **Attention :** tous les médias inclus de cette manière sont chargés en même temps à l'ouverture du cosmoscope, ce qui peut ralentir considérablement l'affichage. Nous prévoyons d'améliorer ceci dans une future mise à jour de Cosma.
+:::
 
 ### Liens
 
